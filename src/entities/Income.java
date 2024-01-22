@@ -1,14 +1,23 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Income {
     private Double annualIncome;
     private Double annualServiceIncome;
     private Double annualCapitalIncome;
+    private Double medicalExpenses;
+    private Double educationalExpenses;
 
-    public Income(Double annualIncome, Double annualServiceIncome, Double annualCapitalIncome) {
+    private List<Taxs> taxsList = new ArrayList<>();
+
+    public Income(Double annualIncome, Double annualServiceIncome, Double annualCapitalIncome, Double medicalExpenses, Double educationalExpenses) {
         this.annualIncome = annualIncome;
         this.annualServiceIncome = annualServiceIncome;
         this.annualCapitalIncome = annualCapitalIncome;
+        this.medicalExpenses = medicalExpenses;
+        this.educationalExpenses = educationalExpenses;
     }
 
     public Double getAnnualIncome() {
@@ -33,5 +42,25 @@ public class Income {
 
     public void setAnnualCapitalIncome(Double annualCapitalIncome) {
         this.annualCapitalIncome = annualCapitalIncome;
+    }
+
+    public Double getMedicalExpenses() {
+        return medicalExpenses;
+    }
+
+    public void setMedicalExpenses(Double medicalExpenses) {
+        this.medicalExpenses = medicalExpenses;
+    }
+
+    public Double getEducationalExpenses() {
+        return educationalExpenses;
+    }
+
+    public void setEducationalExpenses(Double educationalExpenses) {
+        this.educationalExpenses = educationalExpenses;
+    }
+
+    public List<Taxs> getTaxsList() {
+        return taxsList;
     }
 }
