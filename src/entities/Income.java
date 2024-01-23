@@ -63,4 +63,17 @@ public class Income {
     public List<Taxs> getTaxsList() {
         return taxsList;
     }
+
+    public double deductibleExpenses(){
+        return medicalExpenses + educationalExpenses;
+    }
+
+    public String toString() {
+        for (Taxs taxs : taxsList) {
+            return "Imposto bruto total: "
+                    + taxs.totalTaxs()
+                    + "Abatimento: ";
+        }
+
+    }
 }
