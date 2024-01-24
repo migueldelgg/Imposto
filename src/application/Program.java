@@ -36,6 +36,7 @@ public class Program {
         for (Taxs taxs : ic.getTaxsList()) {
             System.out.println(taxs);
             System.out.println(taxs.toString(ic));
+            System.out.println(ic);
 
         }
 

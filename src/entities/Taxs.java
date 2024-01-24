@@ -36,7 +36,7 @@ public class Taxs {
         this.capitalTax = capitalTax;
     }
 
-    public double deductions(){
+    public double deductions(){ // calcula os 30\% do imposto bruto
         return (capitalTax + salaryTax + serviceTax) * 0.30;
     }
 
@@ -47,8 +47,7 @@ public class Taxs {
         return "Máximo dedutível: "
                 + String.format("%.2f\n", deductions())
                 + "Gastos dedutíveis: "
-                + String.format("%.2f\n", income.getMedicalExpenses()
-                + income.getEducationalExpenses());
+                + String.format("%.2f\n", income.deductibleExpenses());
     }
 
     public String toString(){

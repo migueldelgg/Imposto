@@ -68,12 +68,29 @@ public class Income {
         return medicalExpenses + educationalExpenses;
     }
 
+    public double canDeduce(){
+        double result = 0;
+
+        for (Taxs taxs : taxsList) {
+            if (deductibleExpenses() < taxs.deductions()) {
+                result = taxs.totalTaxs() - deductibleExpenses();
+            }
+            else {
+                result = taxs.totalTaxs() - taxs.deductions();
+            }
+        }
+        return result;
+    }
+
     public String toString() {
         for (Taxs taxs : taxsList) {
             return "Imposto bruto total: "
-                    + taxs.totalTaxs()
-                    + "Abatimento: ";
+                    + String.format("%.2f \n", taxs.totalTaxs())
+                    + "Abatimento: "
+                    +  "no sei \n"
+                    + "Imposto devido: "
+                    + String.format("%.2f \n", canDeduce());
         }
-
+        return "a";
     }
 }
