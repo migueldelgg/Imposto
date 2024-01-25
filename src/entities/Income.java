@@ -64,30 +64,38 @@ public class Income {
         return taxsList;
     }
 
-    public double deductibleExpenses(){
+    public double deductibleExpenses() {
         return medicalExpenses + educationalExpenses;
     }
 
-    public double canDeduce(){
+    public double canDeduce() {
         double result = 0;
 
         for (Taxs taxs : taxsList) {
             if (deductibleExpenses() < taxs.deductions()) {
                 result = taxs.totalTaxs() - deductibleExpenses();
-            }
-            else {
+            } else {
                 result = taxs.totalTaxs() - taxs.deductions();
             }
         }
         return result;
     }
 
+    public double reckoning() {
+        double result = 0;
+        for (Taxs taxs : taxsList) {
+            result = taxs.totalTaxs() - canDeduce();
+        }
+        return result;
+    }
+
     public String toString() {
         for (Taxs taxs : taxsList) {
-            return "Imposto bruto total: "
+            return "RESUMO: \n"
+                    + "Imposto bruto total: "
                     + String.format("%.2f \n", taxs.totalTaxs())
                     + "Abatimento: "
-                    +  "no sei \n"
+                    + String.format("%.2f \n", reckoning())
                     + "Imposto devido: "
                     + String.format("%.2f \n", canDeduce());
         }

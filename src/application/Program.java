@@ -28,10 +28,8 @@ public class Program {
 
         ProcessingService ps = new ProcessingService(new TaxIncomeService());
 
-
         ps.processTax(ic);
         System.out.println();
-        System.out.println("RELATÓRIO DE IMPOSTO DE RENDA");
 
         for (Taxs taxs : ic.getTaxsList()) {
             System.out.println(taxs);
@@ -39,7 +37,6 @@ public class Program {
             System.out.println(ic);
 
         }
-
 
         sc.close();
     }

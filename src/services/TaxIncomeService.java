@@ -7,11 +7,9 @@ public class TaxIncomeService implements TaxIncome {
 
         if (amountMonth < 3000.0) {
             return 0.0;
-        }
-        else if (amountMonth <= 5000.0){
+        } else if (amountMonth <= 5000.0) {
             return amount * 0.10;
-        }
-        else {
+        } else {
             return amount * 0.20;
         }
     }
